@@ -35,8 +35,8 @@ return [
         'redirect' => env('URL').'api/auth/facebook/callback',
     ],
     'google' => [
-        'client_id' => '1053372575992-0o314k0ojr9t85iac0g78fs6bag2pd89.apps.googleusercontent.com',
-        'client_secret' => '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',
-        'redirect' => env('URL').'api/auth/google/callback',
+        'client_id' => '1053372575992-l0u9nef96tinpgd4h7fhli9vtafooun0.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' =>'https://localhost/api/auth/google/callback',
     ],
 ];

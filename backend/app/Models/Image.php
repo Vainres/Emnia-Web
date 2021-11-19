@@ -12,6 +12,7 @@ class Image extends Model
         'name',
         'detail',
         'user_id',
+        'image',
     ];
     public function user()
     {

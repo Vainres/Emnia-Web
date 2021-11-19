@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ImageController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,9 +33,16 @@ Route::get('/routeresetpassword/{token}', function($token) {
 Route::post('/resetpassword','App\Http\Controllers\UserController@resetPasswordForUser');
 
 
+Route::get('/images', 'App\Http\Controllers\ImageController@index');
+
+
+
+
+
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::resource('/user', UserController::class);
     Route::post('/uploadAvatar','App\Http\Controllers\UserController@uploadAvatar');
+    Route::post('/uploadImage', 'App\Http\Controllers\ImageController@create');
 
 });
 // 

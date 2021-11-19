@@ -61,8 +61,8 @@ class UserController extends Controller
     public function resendActivationMail(Request $request)
     {
             $user=User::where('email',$request->email)->first();
+            if($user=="") return response()->json('This email not exists');
             if($user->active==true) return response()->json('This email has been verified');
-
             return response()->json($this->sendActivationMail($user));
     }
 

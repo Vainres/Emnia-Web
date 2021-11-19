@@ -49,7 +49,7 @@
           </div>
   
           <button class="form-submit">Đăng ký</button>
-          <a href="login.html" class="login-link">Đã có tài khoản</a>
+          <a href="./login" class="login-link">Đã có tài khoản</a>
         </form>
 
       </div>

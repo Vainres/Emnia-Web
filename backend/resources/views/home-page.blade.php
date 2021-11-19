@@ -17,8 +17,8 @@
         </div>
         <div class="nav">
 
-            <a href="login.html" class="nav-link">Đăng nhập</a>
-            <a href="home-page.html"> <img src="./css/logo-violet.png" alt="logo" class="logo" ></a>
+            <a href="login" class="nav-link">Đăng nhập</a>
+            <a href="/"> <img src="./css/logo-violet.png" alt="logo" class="logo" ></a>
         </div>
 
         <div class="main">

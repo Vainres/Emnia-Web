@@ -1,10 +1,10 @@
 <html>
 <head>
-    <title>Welcome to SecondHand web</title>
+    <title>Welcome to Emnia web</title>
 </head>
 <body>
-    <h1>Chào mừng {{ $user->name }} đến với SecondHand web</h1>
-    <p>Second hand web là nơi trao đổi mua bán đồ cũ</p>
+    <h1>Chào mừng {{ $user->name }} đến với Emnia web</h1>
+    <p>Emnia web là cộng đồng ảnh</p>
     <p></p>
 </body>
 </html>

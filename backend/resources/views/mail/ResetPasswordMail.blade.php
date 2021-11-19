@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Reset Password Email - SecondHand</title>
+    <title>Reset Password Email - Emnia</title>
     <style>
         
         #resetLink{

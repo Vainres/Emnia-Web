@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Activation Email - SecondHand</title>
+    <title>Activation Email - Emnia</title>
     <style>
         
         a {
@@ -38,7 +38,7 @@
 <body>
     <h1>Chào mừng {{ $user->name }}</h1>
     <p>
-        Chào mừng {{ $user->name }} đã đăng ký thành viên tại SecondHand web. Bạn hãy click vào đường link sau đây để hoàn tất việc đăng ký.
+        Chào mừng {{ $user->name }} đã đăng ký thành viên tại Emnia. Bạn hãy click vào đường link sau đây để hoàn tất việc đăng ký.
     </p>
         <a href="{{ $activationLink }}"><b>Ấn vào đây để xác nhận</b></a>
 </body>

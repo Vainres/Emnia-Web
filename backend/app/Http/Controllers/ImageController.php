@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use App\Models\Image;
 use Illuminate\Http\Request;
 
@@ -15,7 +15,8 @@ class ImageController extends Controller
     
     public function index()
     {
-        //
+        $images=Image::paginate(10);
+        return $images;
     }
 
     /**
@@ -23,9 +24,27 @@ class ImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $user = User::find(auth('sanctum')->user()->id);
+        if(!$request->hasFile('image')) {
+            return response()->json(['upload_file_not_found'], 400);
+        }
+        $file = $request->file('image');
+        if(!$file->isValid()) {
+            return response()->json(['invalid_file_upload'], 400);
+        }
+
+        $image=$user->images()->create([
+            'name'=>request()->name,
+            'detail'=>request()->detail,
+        ]);
+        $path = public_path() . "/storage/uploads/images/";
+        $file->move($path, $image->id .'.jpg');
+        $image->update([
+            'image'=>"/storage/uploads/images/" .$image->id .'.jpg',
+        ]);
+        return response()->json(['image'=>$image]);
     }
 
     /**
