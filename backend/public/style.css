@@ -1,0 +1,36 @@
+body {
+    background-color: #292d38;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    color: aliceblue;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 100%;
+    grid-gap: 40px;
+}
+
+.logo img {
+    height: 200px;
+    display: block;
+}
+
+.top {
+    grid-column: 1/4;
+    height: 150px;
+    text-align: center;
+    background-color: aliceblue;
+}
+
+.scalebox {
+    background: rgb(82, 164, 255);
+    background: linear-gradient(164deg, rgba(82, 164, 255, 1) 0%, rgba(0, 0, 0, 1) 30%);
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}

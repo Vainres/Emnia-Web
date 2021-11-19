@@ -1,0 +1,39 @@
+.movie {
+    display: flexbox;
+    height: 150px;
+    width: 150px;
+    /* background-image: url(i1.jpg); */
+    background-size: cover;
+}
+
+.Overlay .img {
+    background-image: url(button2.webp);
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    transform: scale(0.3);
+    transition: all 0.5s;
+}
+
+.Overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.507);
+    opacity: 0;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.Overlay:hover {
+    opacity: 1;
+}
+
+.Overlay:hover .img {
+    transform: scale(1);
+}
+
+.Overlay .img:hover {
+    background-image: url(109197.png);
+    background-size: cover;
+}
