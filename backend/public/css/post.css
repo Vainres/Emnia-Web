@@ -1,0 +1,125 @@
+.contain{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    /* background: linear-gradient(180deg, rgba(2,0,36,1) 0%, 
+    rgba(142,36,138,1) 76%, rgba(0,212,255,1) 100%); */
+    background-color: #292d38;
+    /* display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    color: aliceblue; */
+}
+.box{
+    width: 800px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 50px;
+}
+/*-------them anh--------*/
+.infor_product-uploadImg {
+    /* margin: 10px; */
+    width: 99%;
+    border-radius: 5px;
+    border: #999 3px dashed;
+}
+.BTN-UPLOAD>label {
+    /*width: 160px;*/
+    height: 35px;
+    display: block;
+    cursor: pointer;
+    font-size: 1.6rem;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    font-weight: 700;
+    display: flex;
+}
+
+.BTN-UPLOAD-title>span {
+    margin: auto;
+    color: blue;
+}
+
+.BTN-UPLOAD-title {
+    height: 35px;
+    margin: auto;
+    /*width: 160px;*/
+    display: block;
+    cursor: pointer;
+    line-height: 35px;
+    background-color: rgb(240, 136, 136);
+}
+
+.BTN-UPLOAD-title:hover {
+    background-color: green;
+}
+
+.BTN-UPLOAD-title:hover>span {
+    color: rgb(104, 201, 104);
+}
+
+.List_attach_view {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list_IMG ul {
+    padding: 0px;
+}
+
+.list_IMG ul img {
+    width: 85px;
+    height: 85px;
+    margin: 4px;
+    padding: 3px;
+    display: inline-block;
+}
+
+/*-----tieu de san pham-----*/
+.describe{
+    width: 800px;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 220px;
+}
+.infor_product-category-ali{
+    width: 800px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 10px;
+}
+.infor_product-category-ali-select{
+    width: 600px;
+    height: 30px;
+    border-radius: 5px;
+}
+.infor_product-category-ali-select-describe{
+    width: 600px;
+    height: 60px;
+    border-radius: 5px;
+    margin-left: 36px;
+}
+.tilte-selects{
+    float: left;
+}
+.infor_product-export{
+    width: 800px;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 28px;
+}
+.infor_product-export-btn-text{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/*----trường-----*/
+.valid_err_text{
+    display: inline-block;
+    margin-right: 232px;
+    color: red;
+}
