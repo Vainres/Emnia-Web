@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="component.css">
+    <link rel="stylesheet" href="homepage.css">
+
+</head>
+
+<body>
+    <div class="top">
+        <div class="logo-box">
+            <a href="homepage.html" class="logo">EMNIA</a>
+        </div>
+        <ul>
+            <li><a href="homepage.html">TRANG CHỦ</a></li>
+            <li class="dropdown">
+                <a class="funtion">THÊM</a>
+                <div class="funtion-box">
+                    <a href="#">POST ẢNH</a>
+                    <a href="#">ĐĂNG NHẬP</a>
+                    <a href="#">ĐĂNG XUẤT</a>
+                    <a href="#">NGƯỜI DÙNG</a>
+                </div>
+            </li>
+        </ul>
+        <div class="user-box">
+            <div class="avatar">
+                <img src="#" alt="">
+            </div>
+            <div class="user-name">Quang Minh</div>
+        </div>
+    </div>
+    <DIV class="left">LEFT SIDE BAR</DIV>
+    <DIV class="main">MAIN CONTENT
+        <div class="container">
+            <p>ẢNH ĐĂNG GẦN ĐÂY</p>
+            <!-- @foreach($pagedata->data as $image) -->
+            <div class="scalebox">
+                <div class="movie" style="background-image: url({{$image->image}});">
+                    <div class="Overlay">
+                        <div class="img">
+                            <a href="comment-page.html"><img src="amygirl.jpg" alt=""></a>                           
+                        </div>
+                        <div class="img-info-box">
+                            <p class="img-info">Tiêu để : Army girl  </p>
+                            <p class="img-info">Kích thước : 192x134 </p>
+                            <p class="img-info">Độ phân giải : 256 dpi</p>
+                            <p class="img-info">Nguồn gốc : otakusan.com</p>
+                        </div>      
+                    </div>
+                    <div class="Overlay">
+                        <div class="img">
+                            <a href="comment-page.html"><img src="amygirl.jpg" alt=""></a>                           
+                        </div>
+                        <div class="img-info-box">
+                            <p class="img-info">Tiêu để : Army girl  </p>
+                            <p class="img-info">Kích thước : 192x134 </p>
+                            <p class="img-info">Độ phân giải : 256 dpi</p>
+                            <p class="img-info">Nguồn gốc : otakusan.com</p>
+                        </div>      
+                    </div>
+                </div>
+            </div>
+            <!-- @endforeach -->
+
+        </div>
+
+    </DIV>
+    <DIV class="right">RIGHT SIDE BAR</DIV>
+</body>
+
+</html>
