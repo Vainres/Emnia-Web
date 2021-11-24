@@ -31,7 +31,7 @@
 
             <button class="form-submit">Đăng nhập</button>
             <a href="./register" class="register-link">Chưa có tài khoản</a>
-            <a href="{{ URL::to('api/auth/google') }}">Google Login</a>
+            <a href="{{ URL::to('api/auth/google') }}" class="gg-login">Google Login</a>
         </form>
 
     </div>
