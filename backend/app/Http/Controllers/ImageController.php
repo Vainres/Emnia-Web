@@ -15,7 +15,7 @@ class ImageController extends Controller
     
     public function index()
     {
-        $images=Image::paginate(10);
+        $images=Image::paginate(50);
         return $images;
     }
 

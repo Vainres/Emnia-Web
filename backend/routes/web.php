@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ImageController;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,20 +15,22 @@ use App\Http\Controllers\ImageController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
 
     $obj=new ImageController;
     $pagedata=$obj->index();
     $pagedata=json_encode($pagedata);
     $pagedata=json_decode($pagedata);
-    // return response($pagedata->data);
-    return view('home')->with(compact(['pagedata']));
-});
+    $Authorization=$request->header('Authorization');
+    $request->session()->put('key','value');
+    return $request->ip();
+    return $Authorization;
+    return response()->view('home',['pagedata'=>$pagedata,'Authorization'=>$Authorization])->cookie('Authorization','asdasdas',60);
+})->name('home');
 Route::get('/login', function(){
     $user= new UserController;
     $data=$user->usss(1);
-    $data->Authorization=" sdf";
-    return view('login')->with(['data'=>$data])->withHeaders(['Authorization'=>$data->Authorization]);
+    return view('login')->with(['data'=>$data])->withHeaders(['Authorization'=>"sdadas"]);
 });
 Route::get('/register', function () {
     return view('register');

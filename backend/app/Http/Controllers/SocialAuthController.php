@@ -28,6 +28,7 @@ class SocialAuthController extends Controller
             'password' => $user->token,
             'active' => true,
             'email_verified_at' => now(),
+            'avatar'=>$user->avatar,
 
         ]);
     }

@@ -5,6 +5,10 @@ body {
     color: aliceblue;
 }
 
+.main {
+    margin-top: 80px;
+}
+
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -18,10 +22,14 @@ body {
 }
 
 .top {
+    top: 0px;
     grid-column: 1/4;
-    height: 150px;
+    height: 80px;
     text-align: center;
-    background-color: aliceblue;
+    background: rgb(255, 254, 254);
+    background: linear-gradient(0deg, rgba(255, 254, 254, 1) 0%, rgba(50, 55, 69, 1) 15%);
+    position: fixed;
+    width: 100%;
 }
 
 .scalebox {
@@ -33,4 +41,16 @@ body {
     flex-direction: column;
     justify-content: end;
     align-items: center;
+}
+
+@media only screen and (max-width: 620px) {
+    /* For mobile phones: */
+    .body,
+    .top {
+        width: 100%;
+    }
+    .left,
+    .right {
+        width: 0%;
+    }
 }

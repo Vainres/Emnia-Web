@@ -33,7 +33,7 @@ Route::get('/routeresetpassword/{token}', function($token) {
 Route::post('/resetpassword','App\Http\Controllers\UserController@resetPasswordForUser');
 
 
-Route::get('/images', 'App\Http\Controllers\ImageController@index');
+Route::get('/images', 'App\Http\Controllers\ImageController@index')->name('all.images');
 
 
 

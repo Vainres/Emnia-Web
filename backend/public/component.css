@@ -1,8 +1,9 @@
 .movie {
-    height: 150px;
+    height: 100%;
     width: 100%;
     background-image: url(i1.jpg);
     background-size: cover;
+    background-position: center;
 }
 
 .Overlay .img {
@@ -12,6 +13,12 @@
     width: 50px;
     transform: scale(0);
     transition: all 0.5s;
+}
+
+a {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .Overlay {
