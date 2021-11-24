@@ -1,0 +1,85 @@
+.top{
+    color: red;
+    display: flex;
+    justify-content:space-evenly;
+}
+.logo-box{
+    
+}
+.logo{
+    text-decoration: none;
+    padding: 14px 16px;
+    font-size: 46px;
+}
+/*--------menu-------*/
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: blue; */
+}
+li{
+    float: left;
+}
+li a, .funtion{
+    display: inline-block;
+    color: #292d38;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover, .dropdown:hover .funtion{
+    background-color: rgb(135, 135, 240);
+}
+
+li.dropdown{
+    display: inline-block;
+}
+
+.funtion-box{
+    display: none;
+    position: absolute;
+    background-color: #292d38;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.funtion-box a{
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.funtion-box a:hover{
+    background-color: rgb(135, 135, 240);
+}
+.dropdown:hover .funtion-box{
+    display: block;
+}
+
+/*------user-------*/
+.user-box{
+    min-width: 200px;
+    height: 54px;
+    background-color: rgb(191, 180, 241);
+    display: flex;
+    justify-content:space-around;
+    border-radius: 10px;
+    margin-top: 2px;
+}
+.avatar{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
+    margin-top: 2px;
+}
+
+.user-name{
+    line-height: 54px;
+}
+

@@ -1,0 +1,54 @@
+/* .movie {
+    height: 150px;
+    width: 100%;
+    background-image: url(i1.jpg);
+    background-size: cover;
+}
+
+.Overlay .img {
+    background-image: url(Button/heart.webp);
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    transform: scale(0);
+    transition: all 0.5s;
+}
+
+.Overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.Overlay:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.Overlay:hover .img {
+    transform: scale(1);
+}
+
+.Overlay .img:hover {
+    opacity: 1;
+    transform: scale(1.5);
+}
+
+.Overlay .img:active {
+    opacity: 1;
+} */
+
+.img img{
+    display:block;
+    transition: all .3s ease;
+}
+.img img:hover{
+    transform: scale(1.5);
+}
+.img a{
+    display:block;
+    overflow: hidden;
+}
