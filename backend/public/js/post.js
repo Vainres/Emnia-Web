@@ -82,3 +82,41 @@ Validator.isValue = function(selector) {
     };
 };
 
+// this is the id of the form
+$("#form_post_product").submit(function(e) {
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = $(this);
+    var url = form.attr('action');
+
+    $.ajax({
+        type: "POST",
+        beforeSend: function(request) {
+            request.setRequestHeader("Authorization", getCookie('Authorization'));
+        },
+        url: url,
+        data: form.serialize(), // serializes the form's elements.
+        success: function(data) {
+            alert(data); // show response from the php script.
+        }
+    });
+
+
+});
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}

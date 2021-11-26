@@ -10,6 +10,7 @@
 </head>
 
 <body>
+@include('layout.menu')
     <div class="main">
         <form action="./api/login" method="POST" class="form" id="form-2">
             <h3 class="heading">Đăng nhập</h3>

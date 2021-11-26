@@ -26,7 +26,8 @@ class User extends Authenticatable
         'avatar',
         'active',
         'provider',
-        'provider_id'
+        'provider_id',
+        'remember_token'
     ];
     public function images()
     {

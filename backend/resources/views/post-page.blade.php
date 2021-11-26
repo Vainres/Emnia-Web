@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="post.css">
+    <link rel="stylesheet" href="{{URL::asset('/css/post.css')}}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Post-page</title>
 </head>
 
 <body>
+    @include('layout.menu')
     <div class="contain">
         <div class="box">
-            <form action="" method="POST" id="form_post_product">
+            <form action="{{env('APP_URL'). 'api/uploadImage'}}" method="POST" id="form_post_product">
                 <div class="infor_product-uploadImg">
                     <div class="reviews">
                         <div class="BTN-UPLOAD">
@@ -32,7 +33,7 @@
                 <div class="describe">
                     <div class="infor_product-category-ali">
                         <div class="tilte-selects">Tiêu đề cho ảnh:<span class="Obligatory">*</span></div>
-                        <input type="text" name="name_product" id="Name_product"
+                        <input type="text" name="name" id="Name_product"
                             class="infor_product-category-ali-select " placeholder="Tiêu đề cho sản phẩm (bắt buộc)">
                         <span class="valid_err_text"></span>
                     </div>
@@ -40,7 +41,7 @@
                     <div class="infor_product-category-ali">
                         <div class="tilte-selects">Mô tả ảnh:<span class="Obligatory">*</span></div>
                         <textarea class="infor_product-category-ali-select-describe" inputmode="text"
-                            id="Decrip_product" name="decrip" placeholder="Viết tiếng Việt có dấu
+                            id="Decrip_product" name="detail" placeholder="Viết tiếng Việt có dấu
 - Kích thước
 - Độ phân giải
 - Nguồn gốc
@@ -59,6 +60,7 @@
     </div>
 
     <script type="text/javascript">
+        
         $('.BTN-UPLOAD').click(function () {
             if ($('.insert_attach_UP').hasClass('show-btn') === false) {
                 $('.insert_attach_UP').addClass('show-btn');
@@ -120,8 +122,9 @@
 
         }
     </script>
-    <script src="post.js"></script>
+    <script src="{{URL::asset('/js/post.js')}}"></script>
     <script>
+        
         Validator({
             form: '#form_post_product',
             errSelector: '.valid_err_text',

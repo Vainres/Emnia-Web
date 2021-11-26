@@ -17,7 +17,7 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        // try {
+        try {
             $request->validate([
                 'email' => 'email|required',
                 'password' => 'required'
@@ -37,16 +37,20 @@ class AuthController extends Controller
             if (!Hash::check($request->password, $user->password, [])) {
                 throw new \Exception('Error in Login');
             }
-            $job=(new SaveAccessToken($user))->delay(now()->addMinutes(10));
-            dispatch($job);
+            $tokenResult=\DB::table('personal_access_tokens')
+            ->where('tokenable_id', $user->id)
+            ->delete();
+            $tokenResult = $user->createToken('authToken')->plainTextToken;
+            $user->update(['remember_token'=>$tokenResult]);
+            Session::put('Authorization','Bearer '. $tokenResult);
             return redirect()->route('home');
-        // } catch (\Exception $error) {
-        //     return response()->json([
-        //         'status_code' => 500,
-        //         'message' => 'Error in Login',
-        //         'error' => $error,
-        //     ]);
-        // }
+        } catch (\Exception $error) {
+            return response()->json([
+                'status_code' => 500,
+                'message' => 'Error in Login',
+                'error' => $error,
+            ]);
+        }
     }
     public function showHome(Request $request)
     {
@@ -57,14 +61,10 @@ class AuthController extends Controller
         $session=sess::where('ip_address',$request->ip())->where('user_id','!=',null)->first();
         if($session!="")
         {
-            $tokenResult=\DB::table('personal_access_tokens')
-            ->where('tokenable_id', $session->user_id)
-            ->first();
             $user=User::find($session->user_id);
             sess::truncate();
-            $tokenResult=json_encode($tokenResult);
-            $tokenResult=json_decode($tokenResult);
-            $Authorization='Bearer '. $tokenResult->token;
+            $tokenResult=$user->remember_token;
+            $Authorization='Bearer '. $tokenResult;
             return response()->view('homepage',['pagedata'=>$pagedata,'Authorization'=>$Authorization,'user'=>$user]);
         }
         

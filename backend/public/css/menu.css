@@ -1,0 +1,124 @@
+.top {
+    top: 0px;
+    grid-column: 1/4;
+    height: 80px;
+    text-align: center;
+    background: rgb(255, 254, 254);
+    background: linear-gradient(0deg, rgba(255, 254, 254, 1) 0%, rgba(50, 55, 69, 1) 15%);
+    position: fixed;
+    width: 100%;
+}
+
+.top {
+    color: black;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.top li a {
+    color: white;
+}
+
+.logo {
+    color: aqua;
+    text-decoration: none;
+    padding: 14px 16px;
+    font-size: 46px;
+}
+
+.logo:visited {
+    color: aqua;
+}
+
+
+/*--------menu-------*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: blue; */
+}
+
+li {
+    float: left;
+}
+
+li a,
+.funtion {
+    display: inline-block;
+    color: #292d38;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover,
+.dropdown:hover .funtion {
+    background-color: rgb(135, 135, 240);
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.funtion-box {
+    display: none;
+    position: absolute;
+    background-color: #292d38;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.funtion-box a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.funtion-box a:hover {
+    background-color: rgb(135, 135, 240);
+}
+
+.dropdown:hover .funtion-box {
+    display: block;
+}
+
+
+/*------user-------*/
+
+.user-box {
+    min-width: 200px;
+    height: 54px;
+    background-color: #00ffff;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10px;
+    border-color: 3px solid black;
+    margin-top: 2px;
+}
+
+.avatar {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border-radius: 50%;
+    margin-top: 2px;
+    border-color: 3px solid black;
+}
+
+.user-name {
+    line-height: 54px;
+}
+
+.avatar img {
+    background-color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
