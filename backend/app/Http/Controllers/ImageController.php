@@ -26,6 +26,7 @@ class ImageController extends Controller
      */
     public function create(Request $request)
     {
+        // return $request->all();
         $user = User::find(auth('sanctum')->user()->id);
         if(!$request->hasFile('image')) {
             return response()->json(['upload_file_not_found'], 400);

@@ -54,6 +54,10 @@ class AuthController extends Controller
     }
     public function showHome(Request $request)
     {
+        // while(sess::where('user_id',null)!=null)
+        // {
+        //     sess::where('user_id',null)->firstOrFail()->delete();
+        // }
         $obj=new ImageController;
         $pagedata=$obj->index();
         $pagedata=json_encode($pagedata);
@@ -65,6 +69,7 @@ class AuthController extends Controller
             sess::truncate();
             $tokenResult=$user->remember_token;
             $Authorization='Bearer '. $tokenResult;
+            return $Authorization;
             return response()->view('homepage',['pagedata'=>$pagedata,'Authorization'=>$Authorization,'user'=>$user]);
         }
         

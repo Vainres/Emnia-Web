@@ -15,20 +15,10 @@
     <div class="contain">
         <div class="box">
             <form action="{{env('APP_URL'). 'api/uploadImage'}}" method="POST" id="form_post_product">
-                <div class="infor_product-uploadImg">
-                    <div class="reviews">
-                        <div class="BTN-UPLOAD">
-                            <label class="BTN-UPLOAD-title"><span>Thêm ảnh mô tả</span></label>
-                            <!-- <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"> -->
+                        <div class="previewImg">
+                            <input type="file" id="image" name="image" accept="image/png, image/jpeg">
+                            <img id="blah" src="#" />
                         </div>
-                        <div class="list_IMG">
-                            <ul class="List_attach_view">
-
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
 
                 <div class="describe">
                     <div class="infor_product-category-ali">
@@ -42,15 +32,15 @@
                         <div class="tilte-selects">Mô tả ảnh:<span class="Obligatory">*</span></div>
                         <textarea class="infor_product-category-ali-select-describe" inputmode="text"
                             id="Decrip_product" name="detail" placeholder="Viết tiếng Việt có dấu
-- Kích thước
-- Độ phân giải
-- Nguồn gốc
-"></textarea>
+                        - Kích thước
+                        - Độ phân giải
+                        - Nguồn gốc
+                        "></textarea>
                         <span class="valid_err_text"></span>
                     </div>
 
                     <div class="infor_product-export">
-                        <input type="submit" class="infor_product-export-btn-text" value="Đăng Bài">
+                        <input type="submit" class="infor_product-export-btn-text" value="Đăng ảnh">
                     </div>
                 </div>
 
@@ -137,6 +127,7 @@
             ],
             Onsubmit: function (data) {
                 console.log(data);
+
             }
         });
     </script>

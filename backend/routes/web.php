@@ -16,10 +16,11 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', [App\Http\Controllers\AuthController::class, 'showHome'])->name('home');
-Route::get('/login', function(){
+Route::get('/login', function(Request $request) {
     return view('login');
 })->name('login');
-Route::get('/register', function () {
+Route::get('/register', function (Request $request) {
+    
     return view('register');
 });
 Route::get('/user/{id}', function($id){

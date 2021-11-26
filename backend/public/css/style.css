@@ -18,19 +18,17 @@ body {
     background: rgb(82, 164, 255);
     background: linear-gradient(164deg, rgba(82, 164, 255, 1) 0%, rgba(0, 0, 0, 1) 30%);
     display: flexbox;
-    width: 100%;
-    height: 100%;
+    max-width: 250px;
+    max-height: 100%;
     flex-direction: column;
     justify-content: end;
     align-items: center;
 }
 
 .main {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    max-width: 1300px;
-    height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 40px;
     /* background-color: rgb(255, 255, 255); */
 }
 
@@ -40,6 +38,7 @@ p {
 
 .Overlay {
     display: flex;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 img {
@@ -49,13 +48,23 @@ img {
     display: flex;
 }
 
+.movie {
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .img-info-box {
-    min-width: 100px;
-    height: 150px;
+    text-align: center;
+    max-width: 100%;
+    height: 20px;
     /* background-color: yellow;   */
-    margin-top: 35px;
 }
 
 .img-info {
     color: rgb(255, 255, 255);
+}
+
+.img {
+    max-width: 100%;
 }

@@ -47,6 +47,7 @@ function Validator(option) {
                         return values;
                     }, {});
                     option.Onsubmit(formValues);
+
                 }
 
             }
@@ -82,26 +83,51 @@ Validator.isValue = function(selector) {
     };
 };
 
-// this is the id of the form
-$("#form_post_product").submit(function(e) {
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-
-    var form = $(this);
-    var url = form.attr('action');
-
-    $.ajax({
-        type: "POST",
-        beforeSend: function(request) {
-            request.setRequestHeader("Authorization", getCookie('Authorization'));
-        },
-        url: url,
-        data: form.serialize(), // serializes the form's elements.
-        success: function(data) {
-            alert(data); // show response from the php script.
+        reader.onload = function(e) {
+            $('#blah').attr('src', e.target.result);
         }
-    });
 
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#image").change(function() {
+    readURL(this);
+});
+// this is the id of the form
+$(document).ready(function() {
+    $("#form_post_product").submit(function(e) {
+        e.preventDefault();
+        var fd = new FormData(this);
+        var files = $('#image')[0].files;
+        var url = $(this).attr('action');
+        // Check file selected or not
+        if (files.length > 0) {
+            fd.append('file', files[0]);
+        }
+        console.log(fd);
+        $.ajax({
+            type: "POST",
+            beforeSend: function(request) {
+                request.setRequestHeader("Authorization", getCookie('Authorization'));
+            },
+            url: url,
+            data: fd, // serializes the form's elements.
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                alert("Upload thành công");
+                const img = 'https://emnia.test' + data.image.image;
+                // console.log(); // show response from the php script.
+                $("#img").attr("src", img);
+                $(".preview img").show();
+            }
+        });
+    });
 
 });
 

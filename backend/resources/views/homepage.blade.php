@@ -20,30 +20,27 @@
 <body>
     @include('layout.menu')
     <div class="container">
-        <DIV class="left">LEFT SIDE BAR</DIV>
-        <DIV class="main">MAIN CONTENT
-                <p>ẢNH ĐĂNG GẦN ĐÂY</p>
+        <DIV class="left"></DIV>
+        <DIV class="main">
                 @foreach($pagedata->data as $image)
-                <div class="scalebox">
-                    <div class="movie" style="background-image: url({{$image->image}});">
-                        <div class="Overlay">
-                            <div class="img">
-                                <a href="comment-page.html"><img src="{{$image->image}}" alt=""></a>                           
+                    <div class="scalebox">
+                        <div class="img-info-box">
+                                    <p class="img-info">{{$image->name}}  </p>
+                                </div>   
+                        <div class="movie" style="background-image: url({{$image->image}});">
+                            <div class="Overlay">
+                                <div class="img">
+                                    <a href="comment-page.html"><img src="{{$image->image}}" alt=""></a>                           
+                                </div>
+                                   
                             </div>
-                            <div class="img-info-box">
-                                <p class="img-info">Tiêu để : Army girl  </p>
-                                <p class="img-info">Kích thước : 192x134 </p>
-                                <p class="img-info">Độ phân giải : 256 dpi</p>
-                                <p class="img-info">Nguồn gốc : otakusan.com</p>
-                            </div>      
-                        </div>
 
+                        </div>
                     </div>
-                </div>
                 @endforeach
 
         </DIV>
-        <DIV class="right">RIGHT SIDE BAR</DIV>
+        <DIV class="right"></DIV>
     </div>
 </body>
 

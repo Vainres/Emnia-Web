@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Http\Controllers\ImageController;
+use App\Jobs\SaveAccessToken;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Socialite, Auth, Redirect, Session, URL;
@@ -39,12 +40,9 @@ class SocialAuthController extends Controller
         //  return $raw_user->getAvatar();
         $user=$this->findOrCreateUser($raw_user,$provider);
         $tokenResult = $user->createToken('authToken')->plainTextToken;
-        return Redirect::to(Session::get('pre_url'))->withHeader(['Authorization'=>'Bearer '.$tokenResult]);
-            return response()->json([
-                'status_code' => 200,
-                'access_token' => $tokenResult,
-                'token_type' => 'Bearer',
-            ]);
+        $user->update(['remember_token'=>$tokenResult]);
+        Session::put('Authorization','Bearer '. $tokenResult);
+        return redirect()->route('home');
     }
 
     
