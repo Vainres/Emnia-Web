@@ -15,23 +15,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function (Request $request) {
-
-    $obj=new ImageController;
-    $pagedata=$obj->index();
-    $pagedata=json_encode($pagedata);
-    $pagedata=json_decode($pagedata);
-    $Authorization=$request->header('Authorization');
-    $request->session()->put('key','value');
-    return $request->ip();
-    return $Authorization;
-    return response()->view('home',['pagedata'=>$pagedata,'Authorization'=>$Authorization])->cookie('Authorization','asdasdas',60);
-})->name('home');
+Route::get('/', [App\Http\Controllers\AuthController::class, 'showHome'])->name('home');
 Route::get('/login', function(){
-    $user= new UserController;
-    $data=$user->usss(1);
-    return view('login')->with(['data'=>$data])->withHeaders(['Authorization'=>"sdadas"]);
-});
+    return view('login');
+})->name('login');
 Route::get('/register', function () {
     return view('register');
 });
@@ -41,7 +28,6 @@ Route::get('/user/{id}', function($id){
     // return $data->name;
     return view('login')->with(['data'=>$data]);
 });
-Route::get('/haha', function () {
-    echo "haha";
-    return view('welcome');
+Route::get('/post', function () {
+    return view('post-page');
 });

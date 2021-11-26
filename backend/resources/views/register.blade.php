@@ -12,7 +12,7 @@
     
     <div class="main">
      
-        <form action="" method="POST" class="form" id="form-1">
+        <form action="./api/signup" method="POST" class="form" id="form-1">
           <h3 class="heading">Thành viên đăng ký</h3>
           <p class="desc">Tui muốn thoát khỏi NNN , khổ vãi lồn ❤️</p>
   
@@ -38,7 +38,7 @@
 
           <div class="form-group">
             <label for="pass" class="form-label">Mật khẩu</label>
-            <input id="pass" name="pass" type="password" placeholder="Nhập mật khẩu" class="form-control">
+            <input id="pass" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
             <span class="form-message"></span>
           </div>
   

@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Token;
+use App\Models\Session as sess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Mail;
 use App\Mail\WelcomeMail;
 use App\Http\Controllers\ImageController;
-use Cookie;
+use Cookie,Session;
+use App\Jobs\SaveAccessToken;
 class AuthController extends Controller
 {
     public function login(Request $request)
@@ -34,13 +37,9 @@ class AuthController extends Controller
             if (!Hash::check($request->password, $user->password, [])) {
                 throw new \Exception('Error in Login');
             }
-            $tokenResult = $user->createToken('authToken')->plainTextToken;
-            $cookie=cookie('Authorization','Bearer '. $tokenResult,60);
-            $request->session()->put('Authorization','Bearer '. $tokenResult);
-            $request->headers->set('Authorization', 'Bearer '. $tokenResult);
-            // Cookie::queue(Cookie::make('Authorization','Bearer '. $tokenResult,60));
-            // return response()->json(['status_code' => 500])->withCookie($cookie);
-            return redirect()->route('home')->with(['Authorization'=>'Bearer '. $tokenResult]);
+            $job=(new SaveAccessToken($user))->delay(now()->addMinutes(10));
+            dispatch($job);
+            return redirect()->route('home');
         // } catch (\Exception $error) {
         //     return response()->json([
         //         'status_code' => 500,
@@ -48,5 +47,28 @@ class AuthController extends Controller
         //         'error' => $error,
         //     ]);
         // }
+    }
+    public function showHome(Request $request)
+    {
+        $obj=new ImageController;
+        $pagedata=$obj->index();
+        $pagedata=json_encode($pagedata);
+        $pagedata=json_decode($pagedata);
+        $session=sess::where('ip_address',$request->ip())->where('user_id','!=',null)->first();
+        if($session!="")
+        {
+            $tokenResult=\DB::table('personal_access_tokens')
+            ->where('tokenable_id', $session->user_id)
+            ->first();
+            $user=User::find($session->user_id);
+            sess::truncate();
+            $tokenResult=json_encode($tokenResult);
+            $tokenResult=json_decode($tokenResult);
+            $Authorization='Bearer '. $tokenResult->token;
+            return response()->view('homepage',['pagedata'=>$pagedata,'Authorization'=>$Authorization,'user'=>$user]);
+        }
+        
+        if(isset(auth('sanctum')->user()->id)) $user = User::find(auth('sanctum')->user()->id);
+        return response()->view('homepage',['pagedata'=>$pagedata]);
     }
 }
