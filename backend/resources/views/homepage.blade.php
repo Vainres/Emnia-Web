@@ -1,7 +1,7 @@
 @if(isset($Authorization))
-        {{$a=setcookie("Authorization", $Authorization, time()+3600)}}
-            {{$a=setcookie("name", $user->name, time()+3600)}}
-            {{$a=setcookie("avatar", $user->avatar, time()+3600)}}
+        {{$a=setcookie("Authorization", $Authorization, time()+3600, "/")}}
+            {{$a=setcookie("name", $user->name, time()+3600, "/")}}
+            {{$a=setcookie("avatar", $user->avatar, time()+3600, "/")}}
     @endif
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,7 @@
                         <div class="movie" style="background-image: url({{$image->image}});">
                             <div class="Overlay">
                                 <div class="img">
-                                    <a href="comment-page.html"><img src="{{$image->image}}" alt=""></a>                           
+                                    <a href="{{env('APP_URL').'image/'.$image->id}}"><img src="{{$image->image}}" alt=""></a>                           
                                 </div>
                                    
                             </div>

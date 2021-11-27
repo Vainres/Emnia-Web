@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ImageController;
+use App\Models\Image;
+
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +31,15 @@ Route::get('/user/{id}', function($id){
     // return $data->name;
     return view('login')->with(['data'=>$data]);
 });
+
+Route::get('/user', function(){
+    return view('userpage');
+});
+Route::get('/image/{id}', function ($id) {
+    $image=Image::find($id);
+    return view('Image-page',['image'=>$image]);
+});
+
 Route::get('/post', function () {
     return view('post-page');
 });

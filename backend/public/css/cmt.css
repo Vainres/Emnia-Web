@@ -1,44 +1,47 @@
-.content-box{
+.content-box {
     width: 100%;
     height: 680px;
     background-color: #292d38;
     display: flex;
-    justify-content:center;
-    
-}
-.content{
-    width: 600px;
-    height:500px ;
-    background-color: white;
-    margin-top: 10px;
-    
+    justify-content: center;
 }
 
-.picture{
+.content {
+    width: 600px;
+    height: 500px;
+    background-color: white;
+    margin-top: 10px;
+}
+
+.picture {
     width: 500px;
     height: 300px;
     background-color: rgb(236, 122, 122);
     margin: 0 auto;
     margin-top: 10px;
 }
-.picture img{
+
+.picture img {
     max-width: 500px;
     max-height: 300px;
 }
+
+
 /*------comment-------*/
-.comment-box{
+
+.comment-box {
     width: 600px;
     min-height: 150px;
     background-color: rgb(255, 255, 255);
     margin-top: 10px;
 }
 
-.comment-form{
+.comment-form {
     display: flex;
     flex-direction: column;
 }
 
-.label{
+.label {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
@@ -47,51 +50,55 @@
     color: black;
 }
 
-.comment{
+.comment {
     width: 550px;
     min-height: 60px;
     border-radius: 10px;
-    margin-left:25px ;
+    margin-left: 25px;
 }
-.submit{
+
+.submit {
     width: 80px;
     height: 20px;
     margin-top: 10px;
-    margin-left: 260px ;
+    margin-left: 260px;
 }
 
-.submit:hover{
+.submit:hover {
     color: white;
-    background-color:#292d38;
+    background-color: #292d38;
 }
-.edit{
+
+.edit {
     width: 80px;
     height: 20px;
     margin-top: 10px;
-    margin-left: 320px ;
+    margin-left: 320px;
 }
 
-.edit:hover{
+.edit:hover {
     color: white;
-    background-color:#292d38;
+    background-color: #292d38;
 }
 
-.cmt-table{
+.cmt-table {
     width: 600px;
     height: 100px;
     /* background-color: violet; */
     border-radius: 10px;
-    margin-left:50px ;
+    margin-left: 50px;
     margin-top: 10px;
 }
 
+
 /*-----phần hiện cmt-----*/
-.cmt-table-box{
+
+.cmt-table-box {
     width: 600px;
-    height:300px ;
+    height: 300px;
     background-color: rgb(255, 255, 255);
     display: flex;
-    overflow:auto;
+    overflow: auto;
     margin-top: 210px;
     margin-left: 20px;
     color: black;

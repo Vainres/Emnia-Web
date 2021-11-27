@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Current_access;
 use App\Http\Controllers\ImageController;
 use App\Jobs\SaveAccessToken;
 use App\Http\Requests;
@@ -41,7 +42,10 @@ class SocialAuthController extends Controller
         $user=$this->findOrCreateUser($raw_user,$provider);
         $tokenResult = $user->createToken('authToken')->plainTextToken;
         $user->update(['remember_token'=>$tokenResult]);
-        Session::put('Authorization','Bearer '. $tokenResult);
+        Current_access::create([
+            'user_id'=>$user->id,
+            'token'=>$tokenResult,
+        ]);
         return redirect()->route('home');
     }
 

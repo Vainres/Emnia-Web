@@ -1,6 +1,3 @@
-
-
-
 $('.dandev_insert_attach').click(function() {
     if ($('.list_attach').hasClass('show-btn') === false) {
         $('.list_attach').addClass('show-btn');

@@ -121,10 +121,10 @@ $(document).ready(function() {
             contentType: false,
             success: function(data) {
                 alert("Upload thành công");
-                const img = 'https://emnia.test' + data.image.image;
-                // console.log(); // show response from the php script.
-                $("#img").attr("src", img);
-                $(".preview img").show();
+                // const img = 'https://emnia.test' + data.image.image;
+                // // console.log(); // show response from the php script.
+                // $("#img").attr("src", img);
+                // $(".preview img").show();
             }
         });
     });

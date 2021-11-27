@@ -24,18 +24,14 @@
                     <div class="infor_product-category-ali">
                         <div class="tilte-selects">Tiêu đề cho ảnh:<span class="Obligatory">*</span></div>
                         <input type="text" name="name" id="Name_product"
-                            class="infor_product-category-ali-select " placeholder="Tiêu đề cho sản phẩm (bắt buộc)">
+                            class="infor_product-category-ali-select " placeholder="Tiêu đề cho ảnh (bắt buộc)">
                         <span class="valid_err_text"></span>
                     </div>
 
                     <div class="infor_product-category-ali">
                         <div class="tilte-selects">Mô tả ảnh:<span class="Obligatory">*</span></div>
                         <textarea class="infor_product-category-ali-select-describe" inputmode="text"
-                            id="Decrip_product" name="detail" placeholder="Viết tiếng Việt có dấu
-                        - Kích thước
-                        - Độ phân giải
-                        - Nguồn gốc
-                        "></textarea>
+                            id="Decrip_product" name="detail" placeholder="Nội dung chi tiết"></textarea>
                         <span class="valid_err_text"></span>
                     </div>
 

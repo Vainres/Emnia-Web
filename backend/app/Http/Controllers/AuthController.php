@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Token;
+use App\Models\Current_access;
 use App\Models\Session as sess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -42,7 +43,10 @@ class AuthController extends Controller
             ->delete();
             $tokenResult = $user->createToken('authToken')->plainTextToken;
             $user->update(['remember_token'=>$tokenResult]);
-            Session::put('Authorization','Bearer '. $tokenResult);
+            Current_access::create([
+                'user_id'=>$user->id,
+                'token'=>$tokenResult,
+            ]);
             return redirect()->route('home');
         } catch (\Exception $error) {
             return response()->json([
@@ -62,14 +66,14 @@ class AuthController extends Controller
         $pagedata=$obj->index();
         $pagedata=json_encode($pagedata);
         $pagedata=json_decode($pagedata);
-        $session=sess::where('ip_address',$request->ip())->where('user_id','!=',null)->first();
-        if($session!="")
+        $access=Current_access::all()->first();
+        if($access!="")
         {
-            $user=User::find($session->user_id);
-            sess::truncate();
+            $user=User::find($access->user_id);
+            Current_access::truncate();
             $tokenResult=$user->remember_token;
             $Authorization='Bearer '. $tokenResult;
-            return $Authorization;
+            // return $Authorization;
             return response()->view('homepage',['pagedata'=>$pagedata,'Authorization'=>$Authorization,'user'=>$user]);
         }
         

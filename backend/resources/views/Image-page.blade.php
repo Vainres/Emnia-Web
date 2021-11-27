@@ -4,43 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cmt.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="homepage.css">
-    <title>comment picture page</title>
+    <link rel="stylesheet" href="{{URL::asset('/css/cmt.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('/css/style.css')}}">
+    <title>Picture page</title>
 </head>
 <body  onload="rendercmt()">
 
-    <div class="top">
-        <div class="logo-box">
-            <a href="#" class="logo">EMNIA</a>
-        </div>
-        <ul>
-            <li><a href="#">TRANG CHỦ</a></li>
-            <li class="dropdown">
-                <a class="funtion">THÊM</a>
-                <div class="funtion-box">
-                    <a href="#">POST ẢNH</a>
-                    <a href="#">ĐĂNG NHẬP</a>
-                    <a href="#">ĐĂNG XUẤT</a>
-                    <a href="#">NGƯỜI DÙNG</a>
-                </div>
-            </li>
-        </ul>
-        <div class="user-box">
-            <div class="avatar">
-                <img src="" alt="">
-            </div>
-            <div class="user-name">Quang Minh</div>
-        </div>
-    </div>
+    @include('layout.menu')
 
 
     <div class="content-box">
        
         <div class="content">
             <div class="picture">
-                <img src="#" alt="">
+                <img src="{{env('URL').$image->image}}" alt="">
             </div>
             <div class="comment-box">
                 <div class="comment-form">
@@ -60,7 +37,6 @@
         <div class="cmt-table-box">
             <div class="cmt-table">
                 <table id='tablecontent'  cellpadding="10" cellspacing="0" >
-                    
                 </table>
             </div>
         

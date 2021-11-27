@@ -54,6 +54,11 @@ li a,
     text-decoration: none;
 }
 
+#menuName {
+    color: black;
+    padding: 0 5px;
+}
+
 li a:hover,
 .dropdown:hover .funtion {
     background-color: rgb(135, 135, 240);
