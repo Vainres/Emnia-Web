@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\CommentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,13 +38,14 @@ Route::post('/resetpassword','App\Http\Controllers\UserController@resetPasswordF
 Route::get('/images', 'App\Http\Controllers\ImageController@index')->name('all.images');
 
 
-
+Route::get('/images/{id}/comment', 'App\Http\Controllers\CommentController@allComment')->name('all.comment');
 
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::resource('/user', UserController::class);
     Route::post('/uploadAvatar','App\Http\Controllers\UserController@uploadAvatar');
     Route::post('/uploadImage', 'App\Http\Controllers\ImageController@create');
+    Route::post('/images/{id}/comment', 'App\Http\Controllers\CommentController@addComment')->name('add.comment');
 
 });
 // 
