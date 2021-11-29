@@ -1,6 +1,9 @@
 function hrefCall() {
     document.getElementById('GoToHref').click();
 }
+
+
+
 $(document).keydown(function(event) {
     if (event.keyCode == 123) { // Prevent F12
         return false;
@@ -16,6 +19,9 @@ $(document).on("contextmenu", function(e) {
 setInterval(function() {
     debugger;
 }, 50);
+
+
+
 
 function triggerMe() {
     var DelayhrefCall;

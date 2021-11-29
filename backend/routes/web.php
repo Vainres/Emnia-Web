@@ -24,10 +24,21 @@ Route::get('/login', function(Request $request) {
 Route::get('/login/error', function(Request $request) {
     return view('auth.login',['error'=>'error in login']);
 })->name('login.error');
+
+Route::get('/login/after', function(Request $request) {
+    return view('auth.login',['error'=>'Đã tạo tài khoản và gửi email xác nhận']);
+})->name('login.active');
+
+Route::get('/register/error', function(Request $request) {
+    return view('auth.register',['message'=>'error in signup']);
+})->name('signup.error');
+
 Route::get('/register', function (Request $request) {
-    
     return view('auth.register');
 });
+Route::post('/register', 'App\Http\Controllers\UserController@create');
+
+
 Route::get('/user', function(){
     return view('user.self');
 });

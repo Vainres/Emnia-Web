@@ -82,13 +82,9 @@ class UserController extends Controller
                 'phone'     => $request->phone,
             ]);
             $authorizationMail=$this->sendActivationMail($user);
-            return redirect()->route('login')->with([$user,$authorizationMail]);
+            return redirect()->route('login.after')->with([$user,$authorizationMail]);
         } catch (\Exception $error) {
-            return response()->json([
-                'status_code' => 500,
-                'message' => 'Error in Sign up',
-                'error' => $error,
-            ]);
+            return redirect()->route('signup.error');
         }
     }
 

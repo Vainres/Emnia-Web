@@ -20,7 +20,7 @@ class ActivationMail extends Mailable
     public function __construct($user,$token)
     {
         $this->user=$user;
-        $this->activationLink=env('URL') .'api/activation/'.$token;
+        $this->activationLink=env('URL') .'/api/activation/'.$token;
     }
 
     /**

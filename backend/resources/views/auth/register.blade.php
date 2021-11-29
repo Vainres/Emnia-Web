@@ -8,13 +8,15 @@
     <title>ĐĂNG KÍ</title>
 </head>
 <body>
-  
+  @include('layout.menu')
     
     <div class="main">
      
-        <form action="./api/signup" method="POST" class="form" id="form-1">
-          <h3 class="heading">Thành viên đăng ký</h3>
-          <p class="desc">Tui muốn thoát khỏi NNN , khổ vãi lồn ❤️</p>
+        <form action="{{env('URL'). '/api/signup'}}" method="POST" class="form" id="form-1">
+            @if(isset($message))
+            <p class="error">{{$message}}</p>
+            @endif
+          <h3 class="heading">Đăng ký thành viên</h3> 
   
           <div class="spacer"></div>
   
@@ -49,7 +51,7 @@
           </div>
   
           <button class="form-submit">Đăng ký</button>
-          <a href="./login" class="login-link">Đã có tài khoản</a>
+          <a href="{{env('APP_URL').'login'}}" class="login-link">Đã có tài khoản</a>
         </form>
 
       </div>
