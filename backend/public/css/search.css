@@ -18,7 +18,7 @@ body {
     background: rgb(82, 164, 255);
     background: linear-gradient(164deg, rgba(82, 164, 255, 1) 0%, rgba(0, 0, 0, 1) 30%);
     display: flexbox;
-    max-width: 250px;
+    max-width: 500px;
     max-height: 100%;
     flex-direction: column;
     justify-content: end;
@@ -26,8 +26,11 @@ body {
 }
 
 .main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr;
     grid-gap: 40px;
     /* background-color: rgb(255, 255, 255); */
 }
@@ -42,8 +45,8 @@ p {
 }
 
 img {
-    max-width: 200px;
-    max-height: 150px;
+    max-width: 500px;
+    max-height: 450px;
     margin: 40px 40px;
     display: flex;
 }

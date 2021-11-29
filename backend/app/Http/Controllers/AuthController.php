@@ -27,10 +27,7 @@ class AuthController extends Controller
             $credentials = request(['email', 'password']);
 
             if (!Auth::attempt($credentials)) {
-                return view('login')->with([
-                    'status_code' => 500,
-                    'message' => 'Unauthorized'
-                ]);
+                return redirect()->route('login.error');
             }
 
             $user = User::where('email', $request->email)->first();
@@ -49,11 +46,7 @@ class AuthController extends Controller
             ]);
             return redirect()->route('home');
         } catch (\Exception $error) {
-            return response()->json([
-                'status_code' => 500,
-                'message' => 'Error in Login',
-                'error' => $error,
-            ]);
+            return redirect()->route('login.error')->with(['error'=>'error in login']);
         }
     }
     public function showHome(Request $request)

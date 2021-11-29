@@ -36,7 +36,7 @@ class UserController extends Controller
         $user->update([ 
             'avatar'=> "/storage/uploads/avatars/" .$user->id .'.jpg'
         ]);
-        return response()->json('Upload successful');
+        return response()->json($user->avatar);
      }
     public function index()
     {
@@ -173,16 +173,14 @@ class UserController extends Controller
         if (Carbon::parse($passwordReset->created_at)->addMinutes(720)->isPast()) {
             $passwordReset->delete();
 
-            return response()->json([
-                'message' => 'This password reset token is invalid.',
-            ], 422);
+            return response()->json('This password reset token is invalid.');
         }
         $user=User::where('email',$passwordReset->email)->update([
             'password'=>Hash::make($request->password),
             
         ]);
         $method=$passwordReset->deletePasswordReset($request->token);
-        return response()->json(['Password change successfully',$user,$method]);
+        return response()->json('Password change successfully');
     }
 
     public function ResetPassword(Request $request)
@@ -193,9 +191,7 @@ class UserController extends Controller
         $token=$Resetpassword->createResetPassword($user);
         $email= new ResetPasswordMail($user,$token);
         Mail::to($request->email)->send($email);
-
         return response()->json('Password reset email has been sent');
-
     }
     public function usss($id)
     {

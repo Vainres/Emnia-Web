@@ -1,10 +1,3 @@
-@if(isset($Authorization))
-            {{$a=setcookie("Authorization", $Authorization, time()+3600,"/")}}
-            {{$a=setcookie("name", $user->name, time()+3600,"/")}}
-            {{$a=setcookie("avatar", $user->avatar, time()+3600,"/")}}
-            {{$a=setcookie("id", $user->id, time()+3600,"/")}}
-            
-    @endif
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,9 +15,11 @@
 <body>
     @include('layout.menu')
     <div class="container">
-        <DIV class="left"></DIV>
+        <DIV class="left">
+        </DIV>
         <DIV class="main">
-                @foreach($pagedata->data as $image)
+        <h1>Ảnh đã đăng</h1>
+            @foreach($images as $image)
                     <div class="scalebox">
                         <div class="img-info-box">
                                     <p class="img-info">{{$image->name}}  </p>
@@ -42,7 +37,6 @@
                         </div>
                     </div>
                 @endforeach
-
         </DIV>
         <DIV class="right"></DIV>
     </div>

@@ -12,7 +12,10 @@
 <body>
 @include('layout.menu')
     <div class="main">
-        <form action="./api/login" method="POST" class="form" id="form-2">
+        <form action="{{env('APP_URL').'api/login'}}" method="POST" class="form" id="form-2">
+            @if(isset($error))
+            <p class="error">error in login</p>
+            @endif
             <h3 class="heading">Đăng nhập</h3>
             <p class="desc">378138 361233 360196 313043 ❤️</p>
 
@@ -31,8 +34,9 @@
             </div>
 
             <button class="form-submit">Đăng nhập</button>
-            <a href="./register" class="register-link">Chưa có tài khoản</a>
-            <a href="{{ URL::to('api/auth/google') }}" class="gg-login">Google Login</a>
+            <a href="{{env('APP_URL').'register'}}" class="register-link">Chưa có tài khoản</a>
+            <a href="{{env('APP_URL').'forgotPassword'}}" class="register-link">Quên mật khẩu</a>
+            <a href="{{ URL::to('api/auth/google') }}" class="register-link gg-login">Google Login</a>
         </form>
 
     </div>

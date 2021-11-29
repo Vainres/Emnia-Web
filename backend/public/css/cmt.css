@@ -1,29 +1,135 @@
 .content-box {
     width: 100%;
-    height: 680px;
+    /*! height: 680px; */
     background-color: #292d38;
-    display: flex;
+    display: grid;
     justify-content: center;
+    align-content: center;
+    margin-top: 80px;
 }
 
 .content {
     width: 600px;
-    height: 500px;
+    /*! height: 500px; */
     background-color: white;
     margin-top: 10px;
 }
 
+.author {
+    display: flex;
+    margin-left: 30px;
+    align-items: center;
+}
+
+.author a {
+    margin-left: 5px;
+    color: black;
+    text-decoration: none;
+}
+
+.avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: black double 2px;
+}
+
+img {
+    margin: 0px;
+    border: black 5px;
+    border-style: double;
+}
+
+.commentUser {
+    margin: 30px;
+    border: black solid 1px;
+    background-color: rgb(210, 235, 194);
+    display: flex;
+    flex-direction: column;
+}
+
+.commentUserInfo {
+    display: flex;
+    align-items: center;
+}
+
+.commentUserName {
+    margin-left: 5px;
+    color: black;
+    text-decoration: none;
+}
+
+.commentSection p {
+    color: black;
+}
+
+.deleteButon {
+    display: flex;
+    align-content: end;
+    width: 100%;
+    flex-direction: column;
+}
+
+h3 {
+    color: black;
+    text-align: center;
+}
+
+#favorite {
+    width: auto;
+}
+
+.edit {
+    background-color: #5a9df8;
+    text-align: center;
+}
+
+.edit:visited {
+    color: black;
+}
+
+.edit:hover {
+    background-color: black;
+    color: white;
+}
+
+.none {
+    display: none;
+}
+
+#unfavorite {
+    width: auto;
+}
+
+.inputDelete {
+    max-width: 100px;
+}
+
+.time {
+    font-size: 10px;
+    margin-left: 2px;
+}
+
+.commentDetail {
+    margin: 0px 55px 10px 55px;
+    /*! max-width: 100%; */
+    word-wrap: break-word;
+}
+
 .picture {
     width: 500px;
-    height: 300px;
-    background-color: rgb(236, 122, 122);
+    /*! height: 100%; */
+    background-color: rgb(0, 0, 0);
     margin: 0 auto;
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .picture img {
     max-width: 500px;
-    max-height: 300px;
+    max-height: 100%;
 }
 
 
@@ -99,7 +205,7 @@
     background-color: rgb(255, 255, 255);
     display: flex;
     overflow: auto;
-    margin-top: 210px;
-    margin-left: 20px;
+    /*! margin-top: 210px; */
+    /*! margin-left: 20px; */
     color: black;
 }

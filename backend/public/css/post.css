@@ -12,11 +12,28 @@
     color: aliceblue; */
 }
 
+#deleteImageForm {
+    display: flex;
+    align-content: end;
+    flex-direction: column;
+}
+
+#delete {
+    align-self: flex-end;
+    background: white;
+    color: red;
+    height: 23px;
+}
+
+#delete:hover {
+    background-color: red;
+    color: black;
+}
+
 .box {
     width: 800px;
     height: 500px;
     background-color: rgb(255, 255, 255);
-    margin-top: 50px;
 }
 
 

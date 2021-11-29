@@ -31,7 +31,7 @@
           </div>
 
           <div class="form-group">
-            <label for="phone" class="form-label">Tên đầy đủ</label>
+            <label for="phone" class="form-label">Số điện thoại</label>
             <input id="phone" name="phone" type="text" placeholder="Nhập SĐt của bạn" class="form-control">
             <span class="form-message"></span>
           </div>

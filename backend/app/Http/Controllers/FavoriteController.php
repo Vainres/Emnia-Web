@@ -2,42 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 use App\Models\Image;
 use App\Models\User;
 
-class CommentController extends Controller
+class FavoriteController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function addComment(Request $request,$id)
+    public function addFavorite($id)
     {
         $user = User::find(auth('sanctum')->user()->id);
         $image=Image::find($id);
         if($image==NULL) return response()->json(['Image not found']);
-        $comment=Comment::create([
+        $Favorite=Favorite::create([
             'user_id'=>$user->id,
             'image_id'=>$id,
-            'content'=>$request->content,
         ]);
-        return response()->json([$comment]);
+        return response()->json([$Favorite]);
     }   
-    public function deleteComment($id)
+    public function deleteFavorite($id)
     {
-        $comment=Comment::find($id)->delete();
-        return response()->json([$comment]);
+        $Favorite=Favorite::find($id)->delete();
+        return response()->json([$Favorite]);
     }   
-    public function allImageComment($id)
+    public function allImageFavorite($id)
     {
-        return response()->json(Comment::where('image_id',$id)->get());
+        return response()->json(Favorite::where('user_id',$id)->get());
     }
-    public function index()
+
+    public function index($id)
     {
-        //
+        $favorite=Favorite::where('image_id',$id)->where('user_id',auth('sanctum')->user()->id)->get();
+        return response()->json($favorite);
+
     }
 
     /**
@@ -64,21 +66,23 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function show(Comment $comment)
+    public function show($id)
     {
-        //
+        $favorites=Favorite::where('user_id',$id)->get();
+        // return $favorites;
+        return view('user.favorite',['favorites'=>$favorites]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comment $comment)
+    public function edit(Favorite $favorite)
     {
         //
     }
@@ -87,10 +91,10 @@ class CommentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(Request $request, Favorite $favorite)
     {
         //
     }
@@ -98,10 +102,10 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy(Favorite $favorite)
     {
         //
     }

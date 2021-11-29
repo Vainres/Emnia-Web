@@ -19,7 +19,7 @@ class ResetPasswordMail extends Mailable
     public function __construct($user,$token)
     {
         $this->user=$user;
-        $this->ResetLink=env('URL') .'api/routeresetpassword/'.$token;
+        $this->ResetLink=env('APP_URL') .'api/routeresetpassword/'.$token;
     }
 
     /**

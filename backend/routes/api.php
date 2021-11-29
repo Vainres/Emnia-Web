@@ -30,22 +30,32 @@ Route::post('/resend-activation-mail','App\Http\Controllers\UserController@resen
 
 Route::post('/request-reset-password','App\Http\Controllers\UserController@ResetPassword');
 Route::get('/routeresetpassword/{token}', function($token) {
-    return view('resetPassword')->with(['token'=>$token,'url'=>env('URL').'api/resetpassword']);
+    return view('auth.resetPassword')->with(['token'=>$token,'url'=>env('APP_URL').'api/resetpassword']);
 });
 Route::post('/resetpassword','App\Http\Controllers\UserController@resetPasswordForUser');
 
 
 Route::get('/images', 'App\Http\Controllers\ImageController@index')->name('all.images');
 
+Route::get('/search/{name}/{id}', 'App\Http\Controllers\ImageController@search')->name('search.images');
 
-Route::get('/images/{id}/comment', 'App\Http\Controllers\CommentController@allComment')->name('all.comment');
+// Route::get('/images/{id}/comment', 'App\Http\Controllers\CommentController@allComment')->name('all.comment');
 
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::resource('/user', UserController::class);
     Route::post('/uploadAvatar','App\Http\Controllers\UserController@uploadAvatar');
     Route::post('/uploadImage', 'App\Http\Controllers\ImageController@create');
-    Route::post('/images/{id}/comment', 'App\Http\Controllers\CommentController@addComment')->name('add.comment');
+    Route::post('/image/{id}/edit', 'App\Http\Controllers\ImageController@edit')->name('edit.image');
+    Route::get('/image/{id}/delete', 'App\Http\Controllers\ImageController@destroy')->name('delele.image');
+
+    Route::post('/images/{id}/addComment', 'App\Http\Controllers\CommentController@addComment')->name('add.comment');
+    Route::get('/deleteComment/{id}', 'App\Http\Controllers\CommentController@deleteComment')->name('delete.comment');
+
+    Route::get('/image/{id}/favorite', 'App\Http\Controllers\FavoriteController@index')->name('getImage.favorite');
+    Route::get('/images/{id}/addFavorite', 'App\Http\Controllers\FavoriteController@addFavorite')->name('add.favorite');
+    Route::get('/deleteFavorite/{id}', 'App\Http\Controllers\FavoriteController@deleteFavorite')->name('delete.favorite');
+    Route::get('/favorite', 'App\Http\Controllers\FavoriteController@show')->name('getAll.favorite');
 
 });
 // 

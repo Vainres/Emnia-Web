@@ -100,6 +100,30 @@ $("#image").change(function() {
 });
 // this is the id of the form
 $(document).ready(function() {
+
+    $('#delete').click(function(e) {
+        e.preventDefault();
+        var result = confirm("Want to delete?");
+        if (result) {
+            var url = $('#deleteImageForm').attr('action');
+            $.ajax({
+                type: "GET",
+                beforeSend: function(request) {
+                    request.setRequestHeader("Authorization", getCookie('Authorization'));
+                },
+                url: url,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    alert(data);
+                    DelayhrefCall = window.setTimeout(hrefCall, 500);
+
+                }
+            });
+        }
+
+    })
+
     $("#form_post_product").submit(function(e) {
         e.preventDefault();
         var fd = new FormData(this);
@@ -120,11 +144,11 @@ $(document).ready(function() {
             processData: false,
             contentType: false,
             success: function(data) {
-                alert("Upload thành công");
-                // const img = 'https://emnia.test' + data.image.image;
-                // // console.log(); // show response from the php script.
-                // $("#img").attr("src", img);
-                // $(".preview img").show();
+                alert('Upload thành công');
+                const redirect = $('#GoToPost').attr('action') + 'image/' + data.id;
+                $('#GoToPost').attr('action', redirect);
+                console.log($('#GoToPost').attr('action'));
+                $('#GoToPostbtn').click();
             }
         });
     });

@@ -19,27 +19,40 @@ use Illuminate\Http\Request;
 
 Route::get('/', [App\Http\Controllers\AuthController::class, 'showHome'])->name('home');
 Route::get('/login', function(Request $request) {
-    return view('login');
+    return view('auth.login');
 })->name('login');
+Route::get('/login/error', function(Request $request) {
+    return view('auth.login',['error'=>'error in login']);
+})->name('login.error');
 Route::get('/register', function (Request $request) {
     
-    return view('register');
+    return view('auth.register');
+});
+Route::get('/user', function(){
+    return view('user.self');
+});
+Route::get('/forgotPassword', function(){
+    return view('auth.forgot');
 });
 Route::get('/user/{id}', function($id){
     $user= new UserController;
     $data=$user->usss($id);
-    // return $data->name;
-    return view('login')->with(['data'=>$data]);
+    return view('user.other')->with(['author'=>$data]);
 });
-
-Route::get('/user', function(){
-    return view('userpage');
-});
-Route::get('/image/{id}', function ($id) {
-    $image=Image::find($id);
-    return view('Image-page',['image'=>$image]);
-});
+Route::get('/image/{id}',[App\Http\Controllers\ImageController::class, 'show'] );
 
 Route::get('/post', function () {
-    return view('post-page');
+    return view('image.post');
 });
+Route::get('/image/{id}/edit',function($id){
+    $image=Image::find($id);
+    return view('image.edit',['image'=>$image]);
+})->name('edit');
+
+Route::get('/search/{name}/{id}',[App\Http\Controllers\ImageController::class, 'search']);
+// Route::get('/favorite',function(){
+//     return view('user.favorite');
+// })->name('favorite');
+Route::get('/favorite/{id}', 'App\Http\Controllers\FavoriteController@show')->name('favorite');
+Route::get('/postedImage/{id}', 'App\Http\Controllers\ImageController@posted')->name('posted');
+

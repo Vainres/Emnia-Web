@@ -30,6 +30,12 @@
     color: aqua;
 }
 
+.error {
+    color: red;
+    background-color: aquamarine;
+    font-size: 20px;
+}
+
 
 /*--------menu-------*/
 
@@ -54,9 +60,18 @@ li a,
     text-decoration: none;
 }
 
+#searchBar {
+    margin-top: 20px;
+}
+
 #menuName {
     color: black;
     padding: 0 5px;
+    text-decoration: none;
+}
+
+#menuName:visited {
+    color: black;
 }
 
 li a:hover,
@@ -75,6 +90,8 @@ li.dropdown {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    align-self: start;
+    margin: 50px 0px 0 100px;
 }
 
 .funtion-box a {
@@ -90,6 +107,10 @@ li.dropdown {
 }
 
 .dropdown:hover .funtion-box {
+    display: block;
+}
+
+.avatar:hover .funtion-box {
     display: block;
 }
 

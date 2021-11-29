@@ -44,6 +44,7 @@
         </div>
 
     </div>
+    <form action="{{env('APP_URL')}}" id="GoToPost"><button id="GoToPostbtn"style="display:none"></button></form>
 
     <script type="text/javascript">
         

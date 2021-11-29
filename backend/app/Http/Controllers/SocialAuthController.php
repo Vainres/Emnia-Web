@@ -46,7 +46,7 @@ class SocialAuthController extends Controller
             'user_id'=>$user->id,
             'token'=>$tokenResult,
         ]);
-        return redirect()->route('home');
+        return redirect('https://emnia.test/');
     }
 
     

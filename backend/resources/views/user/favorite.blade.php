@@ -1,10 +1,3 @@
-@if(isset($Authorization))
-            {{$a=setcookie("Authorization", $Authorization, time()+3600,"/")}}
-            {{$a=setcookie("name", $user->name, time()+3600,"/")}}
-            {{$a=setcookie("avatar", $user->avatar, time()+3600,"/")}}
-            {{$a=setcookie("id", $user->id, time()+3600,"/")}}
-            
-    @endif
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,18 +15,20 @@
 <body>
     @include('layout.menu')
     <div class="container">
-        <DIV class="left"></DIV>
+        <DIV class="left">
+        </DIV>
         <DIV class="main">
-                @foreach($pagedata->data as $image)
+        <h1>Ảnh đã yêu thích</h1>
+            @foreach($favorites as $favorite)
                     <div class="scalebox">
                         <div class="img-info-box">
-                                    <p class="img-info">{{$image->name}}  </p>
+                                    <p class="img-info">{{$favorite->image->name}}  </p>
                                 </div>   
-                        <div class="movie" style="background-image: url({{$image->image}});">
+                        <div class="movie" style="background-image: url({{$favorite->image->image}});">
                             <div class="Overlay">
                                 <div class="img">
-                                    <a href="{{env('APP_URL').'image/'.$image->id}}">
-                                        <img src="{{$image->image}}" alt="">
+                                    <a href="{{env('APP_URL').'image/'.$favorite->image->id}}">
+                                        <img src="{{$favorite->image->image}}" alt="">
                                     </a>                           
                                 </div>
                                    
@@ -42,7 +37,6 @@
                         </div>
                     </div>
                 @endforeach
-
         </DIV>
         <DIV class="right"></DIV>
     </div>

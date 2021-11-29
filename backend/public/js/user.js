@@ -35,14 +35,19 @@ $(document).ready(function() {
             processData: false,
             contentType: false,
             success: function(data) {
-                alert("Updata thành công");
-                // const img = 'https://emnia.test' + data.image.image;
-                // $("#image").attr("src", img);
-                // $(".preview img").show();
+                alert("Update thành công");
+                setCookie('avatar', data, 1);
             }
         });
     });
 });
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
 function getCookie(cname) {
     let name = cname + "=";
