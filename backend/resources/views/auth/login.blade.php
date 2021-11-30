@@ -13,8 +13,8 @@
 @include('layout.menu')
     <div class="main">
         <form action="{{env('APP_URL').'api/login'}}" method="POST" class="form" id="form-2">
-            @if(isset($error))
-            <p class="error">error in login</p>
+            @if(isset($message))
+            <p class="error">{{$message}}</p>
             @endif
             <h3 class="heading">Đăng nhập</h3>
             <p class="desc">378138 361233 360196 313043 ❤️</p>

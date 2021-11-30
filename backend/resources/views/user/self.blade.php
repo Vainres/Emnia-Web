@@ -51,6 +51,7 @@
                                 <li class="info-detail" >Email :<b><span id="email"></span></b></li>
                                 <li class="info-detail" >Họ và tên :<b><span id="name"></span></b></li>
                                 <li class="info-detail" >Số điện thoại :<b><span id="phone"></span></b></li>
+                                <li class="info-detail" >Đã xác nhận email :<b><span id="active"></span></b></li>
                                 
                             </ul>
                         </div>

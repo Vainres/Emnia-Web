@@ -82,7 +82,7 @@ class UserController extends Controller
                 'phone'     => $request->phone,
             ]);
             $authorizationMail=$this->sendActivationMail($user);
-            return redirect()->route('login.after')->with([$user,$authorizationMail]);
+            return redirect()->route('login.active')->with([$user,$authorizationMail]);
         } catch (\Exception $error) {
             return redirect()->route('signup.error');
         }
@@ -157,7 +157,7 @@ class UserController extends Controller
         $user->save();
         $user->update(['email_verified_at' => now(),]);
         $delete=$active->deleteActivation($token);
-        return response()->json(['Xác thực thành công',$delete]);
+        return response()->json('Xác thực thành công');
     }
 
     public function resetPasswordForUser(Request $request)

@@ -8,9 +8,14 @@ $(document).ready(function() {
         processData: false,
         contentType: false,
         success: function(user) {
+            console.log(user);
             $('#email').html(user.email);
             $('#name').html(user.name);
             $('#phone').html(user.phone);
+            if (user.active == 0)
+                $('#active').html('Chưa xác thực email');
+            else
+                $('#active').html('Đã xác thực email');
         }
     });
 

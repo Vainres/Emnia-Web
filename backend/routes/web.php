@@ -22,11 +22,11 @@ Route::get('/login', function(Request $request) {
     return view('auth.login');
 })->name('login');
 Route::get('/login/error', function(Request $request) {
-    return view('auth.login',['error'=>'error in login']);
+    return view('auth.login',['message'=>'error in login']);
 })->name('login.error');
 
-Route::get('/login/after', function(Request $request) {
-    return view('auth.login',['error'=>'Đã tạo tài khoản và gửi email xác nhận']);
+Route::get('/login/active', function(Request $request) {
+    return view('auth.login',['message'=>'Đã tạo tài khoản và gửi email xác nhận']);
 })->name('login.active');
 
 Route::get('/register/error', function(Request $request) {
