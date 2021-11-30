@@ -17,6 +17,10 @@
     <div class="content-box">
         <div class="content">
        <h2 style="color:black; text-align:center;">{{$image->name}}</h2>
+       <p style="color:black; text-align:center;">Ngày đăng:{{$image->created_at}}</p>
+        @if($image->created_at!=$image->updated_at)
+            <p style="color:black; text-align:center;">Sửa chữa lần cuối:{{$image->updated_at}}</p>
+        @endif
             <div class="picture">
                 <img src="{{env('URL').$image->image}}" alt="">
             </div>
