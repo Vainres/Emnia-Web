@@ -168,7 +168,6 @@ class UserController extends Controller
         }
         if (Carbon::parse($passwordReset->created_at)->addMinutes(720)->isPast()) {
             $passwordReset->delete();
-
             return response()->json('This password reset token is invalid.');
         }
         $user=User::where('email',$passwordReset->email)->update([

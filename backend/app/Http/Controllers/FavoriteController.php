@@ -39,7 +39,6 @@ class FavoriteController extends Controller
     {
         $favorite=Favorite::where('image_id',$id)->where('user_id',auth('sanctum')->user()->id)->get();
         return response()->json($favorite);
-
     }
 
     /**

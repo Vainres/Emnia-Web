@@ -34,7 +34,6 @@ function triggerMe() {
         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT" + "; path=/";
     }
     DelayhrefCall = window.setTimeout(hrefCall, 2000);
-    //500 millisecond delay, change time as desired
 }
 
 function getCookie(cname) {

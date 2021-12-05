@@ -17,12 +17,12 @@ body {
 .scalebox {
     background: rgb(82, 164, 255);
     background: linear-gradient(164deg, rgba(82, 164, 255, 1) 0%, rgba(0, 0, 0, 1) 30%);
-    display: flexbox;
+    display: flex;
     max-width: 250px;
     max-height: 100%;
     flex-direction: column;
-    justify-content: end;
-    align-items: center;
+    justify-content: space-between;
+    /*! align-items: center; */
 }
 
 .main {
@@ -39,19 +39,23 @@ p {
 .Overlay {
     display: flex;
     background-color: rgba(0, 0, 0, 0.4);
+    align-content: center;
+    justify-content: center;
 }
 
 img {
     max-width: 200px;
     max-height: 150px;
-    margin: 40px 40px;
-    display: flex;
+    margin: 40px 20px;
+    /*! display: flex; */
+    /*! align-self: center; */
 }
 
 .movie {
     background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
+    align-self: center;
 }
 
 .img-info-box {
@@ -66,4 +70,8 @@ img {
 
 .img {
     max-width: 100%;
+    /*! display: flex; */
+    /*! justify-content: center; */
+    /*! align-content: center; */
+    /*! flex-direction: row; */
 }
