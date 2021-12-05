@@ -64,4 +64,4 @@
     <form action="{{env('APP_URL')}}"><button id="GoToHref" style="display:none"></button></form>
 
     </div>
-    <script src="{{URL::asset('/js/menu.js')}}"></script>
+    <script src="{{env('APP_URL').'js/menu.js'}}"></script>
