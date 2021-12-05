@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{URL::asset('/css/search.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/component.css')}}">
+    <link rel="stylesheet" href="{{env('APP_URL').'css/search.css'}}">
+    <link rel="stylesheet" href="{{env('APP_URL').'css/component.css'}}">
     <title>Document</title>
     
     

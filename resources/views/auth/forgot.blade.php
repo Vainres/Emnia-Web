@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{URL::asset('/css/register-login.css')}}">
+    <link rel="stylesheet" href="{{env('APP_URL').'css/register-login.css'}}">
     <title>Khôi phục mật khẩu</title>
 </head>
 
@@ -27,7 +27,7 @@
             <a href="{{env('APP_URL').'login'}}" class="register-link">Đã có tài khoản</a>
             <a href="{{ URL::to('api/auth/google') }}" class="register-link gg-login">Google Login</a>
         </form>
-        <script src="{{URL::asset('/js/resetpassword.js')}}"></script>
+        <script src="{{env('APP_URL').'js/resetpassword.js'}}"></script>
     </div>
 </body>
 
