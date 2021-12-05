@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="{{URL::asset('/css/menu.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/homepage.css')}}">
+    <link rel="stylesheet" href="{{env('APP_URL').'css/menu.css'}}">
+    <link rel="stylesheet" href="{{env('APP_URL').'css/homepage.css'}}">
     <meta http-equiv="Content-Security-Policy" content="default-src https://emnia.test/ ajax.googleapis.com">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
